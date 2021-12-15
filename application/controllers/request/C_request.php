@@ -9,12 +9,13 @@ class C_request extends CI_Controller {
         parent::__construct();
 
         $this->load->model('request/M_request', 'request_model');
+        define('KEY', 'AIzaSyBpuiyEEWl_F1ZfDUnSF6nvU2reGMdot7Q');
     }
 
 
     public function index() {
         
-        //$this->request_model->sendEnquiry();
+    
         $this->request_model->create_material_request();
 
         $pending_requests = $this->request_model->get_pending_request();
@@ -22,6 +23,10 @@ class C_request extends CI_Controller {
 
         $data['pending_requests'] = $pending_requests;
         $data['completed_requests'] = $completed_requests;
+
+        
+        $this->request_model->sendEnquiry();
+
 
         $this->load->view('pages/templates/header');
         $this->load->view('pages/request/v_index', $data);
@@ -122,6 +127,7 @@ class C_request extends CI_Controller {
             $product['this_warehouse'] = $this->input->post('this_wh');
 
             $product['category'] = strtolower($product['category']);
+            $product['warehouse'] = strtolower($product['warehouse']);
 
             if ($this->form_validation->run() == FALSE)
                 {       

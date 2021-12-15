@@ -4,6 +4,13 @@ class M_request extends CI_Model {
 
     public function __construct() {
 
+        parent::__construct();
+
+
+        ##################################################
+        $_SESSION['customer_care']['server'] = 'odoo12';
+        $_SESSION['customer_care']['state'] = 'production';
+
         $this->db_wt = $this->load->database('default', TRUE); //wt = warehouse test
         $this->db_op = $this->load->database('odoo_production', TRUE); // op = odoo production
     }
@@ -163,37 +170,26 @@ class M_request extends CI_Model {
     
 
     //send email that doesnt work
-    /*public function sendEnquiry() {
+    public function sendEnquiry() {
         $this->load->library('email');
-        $name = 'nick';
-        $cemail = 'web3@htm-mbs.com';
-        $pno = '12345';
-        $message = 'test';
-        $config['protocol']    = 'smtp';
-        $config['smtp_host']    = 'localhost';
-        $config['smtp_port']    = '8069';
-        $config['smtp_timeout'] = '7';
-        $config['smtp_user']    = 'admin';
-        $config['smtp_pass']    = 'admin';
-        $config['charset']    = 'utf-8';
-        $config['newline']    = "\r\n";
-        $config['mailtype'] = 'text'; // or html
-        $config['validation'] = FALSE;
 
+
+        $config = array();
+        $config['protocol'] = 'smtp';
+        $config['smtp_host'] = 'ssl://smtp.gmail.com';
+        $config['smtp_user'] = 'sales@mbs-standoffs.com';
+        $config['smtp_pass'] = '@HtmMbs1206@';
+        $config['smtp_port'] = 465;
+        $config['mailtype'] = 'html';
+        $config['validation'] = TRUE;
         $this->email->initialize($config);
-        $this->email->from('web3@htm-mbs.com','Gateway Restaurent Contact');
-        $this->email->to($cemail); 
-        $this->email->subject('Gateway Restaurent Contact Enquiry');
 
-       $this->email->message($message);  
-        $send = $this->email->send();
-        if($send) {
-            echo json_encode("send");
-        } else {
-            $error = $this->email->print_debugger(array('headers'));
-            echo json_encode($error);
-        }
+        $this->email->from('sales@mbs-standoffs.com', 'Identification');
+        $this->email->to('web3@htm-mbs.com');
+        $this->email->subject('Send Email Codeigniter');
+        $this->email->message('The email send using codeigniter library');
 
-    }*/
+        $this->email->send();
+    }
 
 }

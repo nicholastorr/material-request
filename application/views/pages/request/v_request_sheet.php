@@ -6,7 +6,6 @@
     <h1 style="color: red"><?php print($error) ?></h1>
 <?php } ?>
 
-    <h1><?php  print ($user['roles'][5]) ?></h1>
 
 <h1 style="margin-bottom: 75px">New Material Request Form</h1>
 
