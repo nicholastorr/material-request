@@ -25,7 +25,7 @@ class C_request extends CI_Controller {
         $data['completed_requests'] = $completed_requests;
 
         
-        $this->request_model->sendEnquiry();
+        
 
 
         $this->load->view('pages/templates/header');
@@ -81,6 +81,7 @@ class C_request extends CI_Controller {
         $request['order_id'] = $this->request_model->generate_order_id();
 
         $this->request_model->insert_request($request);
+        $this->request_model->stringify_request($request);
 
 
             

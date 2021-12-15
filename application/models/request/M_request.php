@@ -170,7 +170,7 @@ class M_request extends CI_Model {
     
 
     //send email that doesnt work
-    public function sendEnquiry() {
+    /*public function sendEnquiry($request) {
         $this->load->library('email');
 
 
@@ -186,10 +186,73 @@ class M_request extends CI_Model {
 
         $this->email->from('sales@mbs-standoffs.com', 'Identification');
         $this->email->to('web3@htm-mbs.com');
-        $this->email->subject('Send Email Codeigniter');
-        $this->email->message('The email send using codeigniter library');
+        $this->email->subject('Material Request');
+        $this->email->message($value[$key]);
+        
 
         $this->email->send();
+    }*/
+
+    public function stringify_request($request) {
+        $warehouse = $request['warehouse'][0];
+        $order_id = $request['order_id'];
+        $orderArray = [];
+    
+    if ($request['sku'] != null) {
+        foreach ($request['sku'] as $key => $sku) {
+            if ($request['order'][$key] == "") {
+                continue;
+            }
+            $data = array(
+                'sku' => $sku,
+                'description' => $request['description'][$key],
+                'warehouse' => $warehouse,
+                'status' => '0',
+                'date_created' => date('Y-m-d H:i:s'),
+                'order_id' => $order_id,
+                'qty' => $request['quantity'][$key],
+                'good' => $request['good'][$key],
+                'order' => $request['order'][$key],
+                'comments' => $request['comments'][$key]
+            );
+            array_push($orderArray, $data);
+        }
+    }       
+                $output = "";
+            foreach ($orderArray as $key => $value) {
+                $output .= "<tr>";
+                $output .= "<td>" .  "SKU: " . $value['sku'] . " || " . "</td>";
+                $output .= "<td>" . "Warehouse: " . $value['warehouse'] . " || " . "</td>";
+                $output .= "<td>" . "Date Created: " . $value['date_created'] . " || " . "</td>";
+                $output .= "<td>" . "Order Id: " . $value['order_id'] . " || " . "</td>";
+                $output .= "<td>" . "Good: " . $value['good'] . " || " . "</td>";
+                $output .= "<td>" . "Order: " . $value['order'] . " || " . "</td>";
+                $output .= "<td>" . "Comments: " . $value['comments'] . "</td>";
+                $output .= "</tr>";
+                
+                $output .= "<style>" . "td {border: 1px solid black; background-color: red;}" . "</style>";
+            }
+            $this->load->library('email');
+
+
+            $config = array();
+            $config['protocol'] = 'smtp';
+            $config['smtp_host'] = 'ssl://smtp.gmail.com';
+            $config['smtp_user'] = 'sales@mbs-standoffs.com';
+            $config['smtp_pass'] = '@HtmMbs1206@';
+            $config['smtp_port'] = 465;
+            $config['mailtype'] = 'html';
+            $config['validation'] = TRUE;
+            $this->email->initialize($config);
+
+            $this->email->from('sales@mbs-standoffs.com', 'Material Request');
+            $this->email->to('web3@htm-mbs.com');
+            $this->email->subject('Material Request');
+            $this->email->message($output);
+        
+
+                $this->email->send();
+        
     }
 
 }
