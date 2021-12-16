@@ -42,8 +42,8 @@ class M_request extends CI_Model {
                     'warehouse' => $warehouse,
                     'status' => '0',
                     'date_created' => date('Y-m-d H:i:s'),
-                    'order_id' => $order_id,
                     'qty' => $request['quantity'][$key],
+                    'order_id' => $order_id,
                     'good' => $request['good'][$key],
                     'order' => $request['order'][$key],
                     'comments' => $request['comments'][$key]

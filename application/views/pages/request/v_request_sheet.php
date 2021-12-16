@@ -184,7 +184,7 @@
     }
 
     li {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         list-style-type: disclosure-open;
 
     }

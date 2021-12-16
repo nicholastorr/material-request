@@ -81,7 +81,10 @@ class C_request extends CI_Controller {
         $request['order_id'] = $this->request_model->generate_order_id();
 
         $this->request_model->insert_request($request);
-        $this->request_model->stringify_request($request);
+
+        if ($request['sku'] != null) {
+            $this->request_model->stringify_request($request);
+        }
 
 
             
