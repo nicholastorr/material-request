@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="../../../../css/request/request_sheet.css"> 
 <h1 id="warehouse"><?= $warehouse['warehouse_name'] ?></h1>
 
 <h1 style="margin-bottom: 75px">New Material Request Form</h1>   
@@ -39,50 +39,5 @@
 
 
 
-
-<style>
-    .form {
-        display: flex;
-        flex-direction: row;
-        margin: auto;
-       margin-bottom: -10px;
-    }
-    
-    .qty {
-
-
-    }
-
-    input {
-
-    }
-
-    .new-form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .form-headings {
-        display: flex;
-        text-align: center;
-        flex-direction: row;
-        align-items: center;
-        margin: auto;
-    }
-
-    .form-headings h2 {
-        width: 320px;
-        background-color: white;
-        border: 1px solid black;
-        padding: 0 50px 0 50px;
-    }
-
-    input#description, input#sku, input#qty {
-        background-color: white !important;
-        width: 320px !important;
-        margin: 0 !important;
-    }
-</style>
 
 

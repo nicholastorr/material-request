@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="../../../../css/request/request_sheet.css"> 
 
 
 <h1>Warehouse: <?= $request[0]['warehouse'] ?></h1>
@@ -43,46 +43,3 @@
 </div>
 
 
-<style>
-    .request-line {
-        width: 320px;
-        text-decoration: none;
-        border: 1px solid black;
-        padding: 10px 20px 10px 2px;
-        background-color: white;
-        color: black;
-        margin-bottom: -20px;
-    }
-
-    .form {
-        display: flex;
-        flex-direction: row;
-        margin: auto;
-    }
-
-    span {
-    }
-
-    .new-form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-bottom: 40px;
-    }
-
-    .form-headings {
-        display: flex;
-        text-align: center;
-        flex-direction: row;
-        align-items: center;
-        margin: auto;
-        margin-bottom: -30px;
-    }
-
-    .form-headings h2 {
-        width: 320px;
-        background-color: white;
-        border: 1px solid black;
-        padding: 0 50px 0 50px;
-    }
-</style>

@@ -1,5 +1,7 @@
 <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="../../../../css/request/request_sheet.css"> 
+
 
 
 <h1 id="warehouse"><?php echo ($warehouse['warehouse_name']) ?></h1>
@@ -164,111 +166,3 @@
 
 
 
-<style>
-    .glyphicon.glyphicon-remove {
-        color: red;
-        font-size: 30px;
-    }
-
-    .glyphicon.glyphicon-asterisk {
-        font-size: 20px;
-    }
-
-    .body {
-        display: flex;
-        flex-direction: row;
-    }
-
-    div.box {
-        background: none;
-        border: none;
-        box-shadow: none;
-        margin-bottom: none;
-    }
-
-    .box {
-        margin-bottom: none;
-    }
-
-    #text {
-        display: none !important;
-    }
-
-    #form {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .form-headings {
-        display: flex;
-        text-align: center;
-        flex-direction: row;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .form-headings h2 {
-        width: 300px;
-        background-color: white;
-        border: 1px solid black;
-        padding: 0 50px 0 50px;
-    }
-
-    .smaller-head {
-        width: 100px !important;
-        background-color: white;
-        border: 1px solid black;
-        padding: 0 !important;
-    }
-
-    .new-form {
-        display: flex;
-        flex-direction: column;
-    }
-
-    input#good {
-        background-color: white !important;
-        width: 100px !important;
-        margin: 0 !important;
-    }
-
-    input#sku, input#order, input#comments {
-        background-color: white !important;
-        width: 290px !important;
-        margin: 0 !important;
-    }
-
-    li {
-        margin-bottom: 20px;
-        list-style-type: disclosure-open;
-
-    }
-
-    .new_product input {
-        width: 320px;
-        height: 40px;
-    }
-
-    .categories {
-        font-family: 'Roboto', sans-serif;
-        background-color: white;
-        border: 1px solid black;
-        padding: 0 50px 0 50px;
-        margin-right: 20px;
-    }
-
-    #categories {
-        height: 40px;
-    }
-
-    #count {
-        margin-top: 30px;
-    }
-
-    .form-info {
-        border: 1px solid black;
-        background-color: white;
-        padding: 0 50px 0 50px;
-        color: red;
-    }
-</style>

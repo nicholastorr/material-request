@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../../../../css/request/request_sheet.css"> 
 <h1 style="margin-bottom: 75px;">Material Request</h1>
 
 
@@ -48,38 +49,3 @@
 
 
 
-<style>
-
-    .container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .content {
-        margin: 0;
-    }
-
-    .request {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .wh, .request {
-        text-decoration: none;
-        border: 1px solid black;
-        padding: 10px 20px 10px 2px;
-        background-color: silver;
-        margin-bottom: 20px;
-        color: black;
-    }
-
-    .warehouses, .pending-requests, .completed-requests {
-        width: 30%;
-        position: left;
-        display: flex;
-        flex-direction: column;
-        font-size: 25px;
-    }
-</style>
