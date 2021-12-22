@@ -1,24 +1,11 @@
 
+<h1 id="warehouse"><?= $warehouse['warehouse_name'] ?></h1>
 
-<script src="../../js/request/request.js"></script>
-
-
-
-
-
-
-<h1 onblur="sumFunction()" id="warehouse"><?= $warehouse['warehouse_name'] ?></h1>
-
-<h1 style="margin-bottom: 75px">New Material Request Form</h1>
-
-
-
-
-   
+<h1 style="margin-bottom: 75px">New Material Request Form</h1>   
     <?php
-                $attributes = array('name' => 'count_form');
-                echo form_open_multipart('request/C_request/new_material_request?wh=' .  strtolower($warehouse['warehouse_code']) , $attributes);
-                ?>
+        $attributes = array('name' => 'count_form');
+        echo form_open_multipart('request/C_request/new_material_request?wh=' .  strtolower($warehouse['warehouse_code']) , $attributes);
+          ?>
 
 <div>
 <h2>Categories</h2>
@@ -35,13 +22,13 @@
     </div>
     <div id="rows" style="display: flex; flex-direction: column;">
         <div class="form">
-            <span><input type="textarea" id="sku" name="sku[]" onblur="sumFunction()"  style="font-size: 30px; background-color: #DCDCDC; height: 80%; margin-right: 15px"></span>
-            <span><input type="textarea" id="description" name="description[]" onblur="sumFunction()"  style="font-size: 30px; background-color: #DCDCDC; height: 80%; margin-right: 15px"></span>
-            <span class="qty"><input type="textarea" id="qty" name="qty[]" onblur="sumFunction()"  style="font-size: 30px; background-color: #DCDCDC; height: 80%; margin-right: 15px"></span>
+            <span><input type="textarea" id="sku" name="sku[]" style="font-size: 30px; background-color: #DCDCDC; height: 80%; margin-right: 15px"></span>
+            <span><input type="textarea" id="description" name="description[]" style="font-size: 30px; background-color: #DCDCDC; height: 80%; margin-right: 15px"></span>
+            <span class="qty"><input type="textarea" id="qty" name="qty[]" style="font-size: 30px; background-color: #DCDCDC; height: 80%; margin-right: 15px"></span>
         </div>
     </div>
-        <span style="display: none"><input type="textarea" id="order_id" name="order_id[]" onblur="sumFunction()" value="<?= $order_id ?>"  style="font-size: 30px; background-color: #DCDCDC; height: 80%; margin-right: 15px"></input></span>
-        <span style="display: none"><input type="textarea" id="warehouse" name="warehouse[]" onblur="sumFunction()" value="<?= $warehouse['warehouse_name'] ?>"  style="font-size: 30px; background-color: #DCDCDC; height: 80%; margin-right: 15px"></span>
+        <span style="display: none"><input type="textarea" id="order_id" name="order_id[]" value="<?= $order_id ?>"  style="font-size: 30px; background-color: #DCDCDC; height: 80%; margin-right: 15px"></input></span>
+        <span style="display: none"><input type="textarea" id="warehouse" name="warehouse[]" value="<?= $warehouse['warehouse_name'] ?>"  style="font-size: 30px; background-color: #DCDCDC; height: 80%; margin-right: 15px"></span>
 </div>
 
 
