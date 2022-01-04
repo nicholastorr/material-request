@@ -39,19 +39,17 @@ class C_request extends CI_Controller {
     }
 
     
-   
+    //display pending and completed requests
     public function view_request($order_id) {
 
         $data['request'] = $this->request_model->get_request_by_id($order_id);
-
-
 
         $this->load->view('pages/templates/header');
         $this->load->view('pages/request/v_index_request', $data);
         $this->load->view('pages/templates/footer');
     }
 
-
+    //set status of request to completed
     public function complete_request($order_id) {
 
         $this->request_model->complete_request($order_id);
@@ -59,6 +57,7 @@ class C_request extends CI_Controller {
         redirect('/request/C_request/index');
     }
 
+    //set status of request to pending
     public function pend_request($order_id) {
 
         $this->request_model->pend_request($order_id);
@@ -69,8 +68,6 @@ class C_request extends CI_Controller {
 
     //function to create a new request
     public function get_request_sheet($error) {
-
-
         //get material request data from post and send to insert request sheet
         $request['sku'] = $this->input->post('sku');
         $request['good'] = $this->input->post('good');
@@ -82,57 +79,20 @@ class C_request extends CI_Controller {
         $request['weight'] = $this->input->post('weight');
         $request['order_id'] = $this->request_model->generate_order_id();
 
-        //foreach loop run through query, if everything is empty but weight is set run update weight model
-       
-
-       
+        //insert request into database
         $this->request_model->insert_request($request);
 
-
-      
-
-        
-
-        
-        
-
-        /*if (isset($request['weight'])) {
-            $this->request_model->update_weight($request);
-        }*/
-
-        //on successful request insert send email to purchasing
+        //on successful request insert, send email to purchasing
         if ($request['sku'] != null) {
-            /*foreach ($request['sku'] as $key => $value) {
-                if ($request['quantity'][$key] == null) {
-                    
-                }
-            }*/
-            
             $this->request_model->stringify_request($request);
             $this->request_model->update_weight($request);
         }
 
-        
-      
-
-
-        
-
-        /*if (isset($request['weight'])) {
-            $this->request_model->update_weight($request);
-        }*/
-
-        //on successful request insert send email to purchasing
-        /*if ($request['sku'] != null) {
-            $this->request_model->stringify_request($request);
-        }*/
-
-            
+        //send user data and product categories to request sheet
         $data['user'] = $this->session->all_userdata();
         $data['categories'] = $this->request_model->get_categories();
-        // dont think i need this function anymore bc js is inline $data['js'] = ['js/request/request.js'];
 
-        //get error messgae if exists from header and display on page
+        //get error message if exists from header and display on page
         $error = (isset($_GET['error'])) ? $_GET['error'] : null;
         $data['error'] = $error;
 
