@@ -1,5 +1,7 @@
 # material-request
   - Internal warehouse app to send supplies from one warehouse to another
+  - demo reproduction of material request app
+  - http://otest12.htm-mbs.com/request/C_request/index login code: admin
   
  ## User guide
 ------------------------------------------------------------------------------------------------------------------- 
