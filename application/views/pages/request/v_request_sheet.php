@@ -1,8 +1,8 @@
-<link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto">
+<!--New Request Sheet-->
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="../../../../css/request/request_sheet.css"> 
-
-
 
 <h1 id="warehouse"><?php echo ($warehouse['warehouse_name']) ?></h1>
     <?php if ($error) { ?>
@@ -94,8 +94,6 @@
 
 
 
-
-
 <script>
     function myFunc() {
         document.count_form.submit();
@@ -153,11 +151,6 @@
                     $("." + elem).toggle();
                 });
             });
-
-   
-            
-   
-    
 </script>
 
 

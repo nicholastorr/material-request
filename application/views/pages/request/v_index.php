@@ -2,7 +2,7 @@
 <h1 style="margin-bottom: 75px;">Material Request</h1>
 
 
-
+<!--Get warehouse of user and display correct option-->
 <div class="container">
     <div class="warehouses">
         <h3>Create new</h3>
