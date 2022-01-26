@@ -48,7 +48,6 @@ class M_request extends CI_Model {
                     'date_created' => date('m-d-Y H:i:s'),
                     'qty' => $request['quantity'][$key],
                     'order_id' => $order_id,
-                    'weight' => $request['weight'][$key],
                     'order' => $request['order'][$key],
                     'comments' => $request['comments'][$key]
                 );
